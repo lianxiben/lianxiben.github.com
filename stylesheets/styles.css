@@ -342,7 +342,11 @@ footer p + p {
     min-width: 300px;
     width: auto;
     padding: 5px;
-}
+ }
+  
+  .box {
+    display:none;
+　}
 
   footer {
     -webkit-border-radius: 0;
