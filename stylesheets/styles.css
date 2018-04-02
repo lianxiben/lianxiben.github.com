@@ -8,12 +8,6 @@ html {
   background: #6c7989 -ms-linear-gradient(#6c7989, #434b55) fixed;
   background: #6c7989 linear-gradient(#6c7989, #434b55) fixed;*/
   background: #e2e2e2;
-  background: #e2e2e2 -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e2e2e2), color-stop(100%, #434b55)) fixed;
-  background: #e2e2e2 -webkit-linear-gradient(#e2e2e2, #434b55) fixed;
-  background: #e2e2e2 -moz-linear-gradient(#e2e2e2, #434b55) fixed;
-  background: #e2e2e2 -o-linear-gradient(#e2e2e2, #434b55) fixed;
-  background: #e2e2e2 -ms-linear-gradient(#e2e2e2, #434b55) fixed;
-  background: #e2e2e2 linear-gradient(#e2e2e2, #434b55) fixed;
 }
 
 body {
