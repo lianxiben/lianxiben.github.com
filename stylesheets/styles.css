@@ -337,6 +337,12 @@ footer p + p {
     box-shadow: none;
     width: 100%;
   }
+  
+  .content {
+    min-width: 300px;
+    width: auto;
+    padding: 5px;
+}
 
   footer {
     -webkit-border-radius: 0;
