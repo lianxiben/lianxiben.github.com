@@ -190,6 +190,8 @@ header ul a strong {
   -webkit-font-smoothing: antialiased;
 }
 
+.box{height: 20px;;}
+
 section {
   padding: 15px 20px;
   font-size: 15px;
