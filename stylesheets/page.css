@@ -21,9 +21,33 @@
     max-width: var(--max-width);
     margin: 0px auto;
 }
-#content{
-
+@media screen and (min-width: 769px)
+.article-wrapper .main-content {
+    grid-area: main;
 }
-.main-page-content{
-    
+@media screen and (min-width: 769px)
+.article-wrapper .main-content{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+.document-page .main-content{
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+}
+main {
+    min-height: 80vh;
+}
+@media screen and (min-width: 769px)
+.main-page-content {
+    margin-bottom: .5rem;
+    padding: 0;
+}
+@media screen and (min-width: 426px)
+.main-page-content {
+    padding: 3rem;
+}
+.main-page-content {
+    padding: 3rem 1rem 1rem;
+    overflow-wrap: break-word;
 }
