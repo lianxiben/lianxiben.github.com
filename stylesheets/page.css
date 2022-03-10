@@ -26,10 +26,10 @@ p {
 }
 
 #wrapper .main-content{
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding: 3rem;
     box-shadow: 0px 0px 10px 0px #888888;
-    border-radius: 0.7em;
+    border-radius: 0.7rem;
+}
 }
 .main-content{
     display: flex;
