@@ -1,32 +1,21 @@
-@media screen and (min-width: 1200px)
-.article-wrapper {
-    display: grid;
-    grid-template-columns: minmax(0px, 1fr) minmax(0px, 2.5fr) minmax(0px, 15rem);
-    grid-template-areas: "sidebar main toc";
-    padding-left: 1rem;
-    padding-right: 1rem;
-    gap: 3rem;
+html {
+    min-width: 1210px;
+    background-color: #fdfcf8;
+    overflow: scroll;
+    overflow-x: hidden;
 }
-@media screen and (min-width: 769px)
-.article-wrapper {
-    display: grid;
-    grid-template-columns: minmax(0px, 1fr) minmax(0px, 2fr);
-    padding-left: 1.5rem;
-    padding-right: 3rem;
-    grid-template-areas: "sidebar main";
-    gap: 3rem;
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
-.article-wrapper {
+#wrapper {
     display: flex;
     max-width: var(--max-width);
     margin: 0px auto;
 }
-@media screen and (min-width: 769px)
-.article-wrapper .main-content {
-    grid-area: main;
-}
-@media screen and (min-width: 769px)
-.article-wrapper .main-content{
+
+#wrapper .main-content{
     padding-top: 3rem;
     padding-bottom: 3rem;
 }
@@ -35,19 +24,10 @@
     width: 100%;
     display: flex;
 }
-main {
-    min-height: 80vh;
-}
-@media screen and (min-width: 769px)
-.main-page-content {
-    margin-bottom: .5rem;
-    padding: 0;
-}
-@media screen and (min-width: 426px)
-.main-page-content {
-    padding: 3rem;
-}
 .main-page-content {
     padding: 3rem 1rem 1rem;
     overflow-wrap: break-word;
+    float: left;
+    width: 850px;
+    background: transparent;
 }
