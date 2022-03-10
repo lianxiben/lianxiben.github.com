@@ -19,8 +19,6 @@ html {
     padding-bottom: 3rem;
 }
 .main-content{
-    flex-direction: column;
-    width: 100%;
     display: flex;
 }
 .main-page-content {
