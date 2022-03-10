@@ -10,9 +10,7 @@ html {
     border: 0;
 }
 #wrapper {
-    display: flex;
-    width: 910px;
-    max-width: var(--max-width);
+    width: 800px;
     margin: 0px auto;
 }
 
