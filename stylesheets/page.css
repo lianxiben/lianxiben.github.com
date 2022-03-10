@@ -10,46 +10,6 @@ html {
     border: 0;
 }
 body{
-
-}
-h1{
-    letter-spacing: -.5px;
-    margin-bottom: 3rem;
-    word-break: break-word
-}
-p {
-    margin: 1rem 0;
-}
-#wrapper {
-    width: 800px;
-    margin: 0px auto;
-}
-
-#wrapper .main-content{
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-}
-.main-content{
-    display: flex;
-}
-.main-page-content {
-    padding: 3rem 1rem 1rem;
-    overflow-wrap: break-word;
-    float: left;
-    background: transparent;
-}
-html {
-    min-width: 1210px;
-    background-color: #fdfcf8;
-    overflow: scroll;
-    overflow-x: hidden;
-}
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-}
-body{
     background-color: #15141a;
     color: #fbfbfe;
 }
