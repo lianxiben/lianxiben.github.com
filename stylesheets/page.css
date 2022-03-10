@@ -13,6 +13,14 @@ body{
     background-color: #15141a;
     color: #fbfbfe;
 }
+h1{
+    letter-spacing: -.5px;
+    margin-bottom: 3rem;
+    word-break: break-word
+}
+p {
+    margin: 1rem 0;
+}
 #wrapper {
     width: 800px;
     margin: 0px auto;
