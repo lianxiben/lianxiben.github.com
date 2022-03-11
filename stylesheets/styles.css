@@ -29,7 +29,7 @@ body {
     font-weight: 500;
     background-size: 44px 44px;
     border-bottom: 1px solid rgba(0,0,0,.22);
-    padding: 0 20px 0 20px;
+    padding: 10px 20px 0 20px;
 }
 
 .wrapper {
@@ -228,7 +228,6 @@ h1, h2, h3 {
 
 h1 {
   font-size: 28px;
-  padding-top: 5px;
 }
 
 h2 {
@@ -344,43 +343,4 @@ footer p + p {
     width: auto;
     padding: 5px;
  }
-  
-  .box {
-    display:none;
-　}
-
-  footer {
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    -ms-border-radius: 0;
-    -o-border-radius: 0;
-    border-radius: 0;
-    padding: 20px;
-    width: auto;
-  }
-  footer p {
-    float: none;
-    margin: 0;
-  }
-  footer p + p {
-    float: none;
-  }
-}
-@media print, screen and (max-width:580px) {
-  header ul {
-    display: none;
-  }
-
-  header p.view {
-    display: block;
-  }
-
-  header p {
-    width: 100%;
-  }
-}
-@media print {
-  header p.view a small:before {
-    content: 'at https://github.com/';
-  }
 }
