@@ -25,19 +25,19 @@ p {
     margin: 0px auto;
     height:100%;
 }
-.content{
+.main-content{
     padding: 0 3rem;
     box-shadow: 0px 0px 10px 0px #888888;
     border-radius: 0.7em;
-    display: flex;
+    /*display: flex;*/
 }
-.main-content {
+.content {
     padding: 1rem;
     overflow-wrap: break-word;
-    float: left;
+    /*float: left;*/
     background: transparent;
 }
-.main-content ul li {
+.content ul li {
     margin: .5rem 0;
     display: block;
     word-break: break-all;/*强制性换行*/
@@ -53,12 +53,12 @@ p {
     .wrapper {
         width: 100%;
     }
-    .content{
+    .main-content{
         min-width: 300px;
         width: auto;
+        padding: 0;
     }
-    .main-content {
-        margin: 0 auto
+    .content {
+
     };
 }
-
