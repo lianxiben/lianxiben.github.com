@@ -26,7 +26,7 @@ p {
     height:100%;
 }
 .content{
-    padding: 3rem;
+    padding: 0 3rem;
     box-shadow: 0px 0px 10px 0px #888888;
     border-radius: 0.7em;
     display: flex;
@@ -40,7 +40,25 @@ p {
 .main-content ul li {
     margin: .5rem 0;
     display: block;
+    word-break: break-all;/*强制性换行*/
 }
 .del{
     text-decoration: line-through;
 }
+
+@media screen and (max-width: 740px){
+    body {
+        padding: 0;
+    }
+    .wrapper {
+        width: 100%;
+    }
+    .content{
+        min-width: 300px;
+        width: auto;
+    }
+    .main-content {
+        margin: 0 auto
+    };
+}
+
