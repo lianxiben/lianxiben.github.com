@@ -28,87 +28,56 @@
         <p>一.连接数据库：</p>
         <p>二.编辑操作命令：</p>
         <p>三.读取数据（数据读取有两种操作方式：DataSet和DataReader）</p>
-        <pre><code><span style="color: rgba(0, 128, 128, 1)"> 1</span> <span style="color: rgba(0, 0, 255, 1)">Imports</span><span style="color: rgba(0, 0, 0, 1)"> System.Data.Sql
-        </span><span style="color: rgba(0, 128, 128, 1)"> 2</span> <span style="color: rgba(0, 0, 255, 1)">Imports</span><span style="color: rgba(0, 0, 0, 1)"> System.Data.SqlClient
-        </span><span style="color: rgba(0, 128, 128, 1)"> 3</span> 
-        <span style="color: rgba(0, 128, 128, 1)"> 4</span> 
-        <span style="color: rgba(0, 128, 128, 1)"> 5</span> <span style="color: rgba(0, 0, 255, 1)">Public</span> <span style="color: rgba(0, 0, 255, 1)">Class</span><span style="color: rgba(0, 0, 0, 1)"> Form1
-        </span><span style="color: rgba(0, 128, 128, 1)"> 6</span> 
-        <span style="color: rgba(0, 128, 128, 1)"> 7</span> 
-        <span style="color: rgba(0, 128, 128, 1)"> 8</span> 
-        <span style="color: rgba(0, 128, 128, 1)"> 9</span>     <span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">DataReader</span>
-        <span style="color: rgba(0, 128, 128, 1)">10</span>     <span style="color: rgba(0, 0, 255, 1)">Private</span> <span style="color: rgba(0, 0, 255, 1)">Sub</span> Button1_Click(sender <span style="color: rgba(0, 0, 255, 1)">As</span> <span style="color: rgba(0, 0, 255, 1)">Object</span>, e <span style="color: rgba(0, 0, 255, 1)">As</span> EventArgs) <span style="color: rgba(0, 0, 255, 1)">Handles</span><span style="color: rgba(0, 0, 0, 1)"> Button1.Click
-        </span><span style="color: rgba(0, 128, 128, 1)">11</span> 
-        <span style="color: rgba(0, 128, 128, 1)">12</span>         <span style="color: rgba(0, 0, 255, 1)">Dim</span> myconnect <span style="color: rgba(0, 0, 255, 1)">As</span> <span style="color: rgba(0, 0, 255, 1)">New</span><span style="color: rgba(0, 0, 0, 1)"> SqlClient.SqlConnection
-        </span><span style="color: rgba(0, 128, 128, 1)">13</span>         <span style="color: rgba(0, 0, 255, 1)">Dim</span> mycommand <span style="color: rgba(0, 0, 255, 1)">As</span> <span style="color: rgba(0, 0, 255, 1)">New</span><span style="color: rgba(0, 0, 0, 1)"> SqlClient.SqlCommand
-        </span><span style="color: rgba(0, 128, 128, 1)">14</span>         <span style="color: rgba(0, 0, 255, 1)">Dim</span> myread <span style="color: rgba(0, 0, 255, 1)">As</span> SqlClient.SqlDataReader = <span style="color: rgba(0, 0, 255, 1)">Nothing</span>
-        <span style="color: rgba(0, 128, 128, 1)">15</span>         <span style="color: rgba(0, 0, 255, 1)">Dim</span> mytable <span style="color: rgba(0, 0, 255, 1)">As</span> <span style="color: rgba(0, 0, 255, 1)">New</span><span style="color: rgba(0, 0, 0, 1)"> DataTable()
-        </span><span style="color: rgba(0, 128, 128, 1)">16</span>         <span style="color: rgba(0, 0, 255, 1)">Dim</span> mystr(<span style="color: rgba(128, 0, 128, 1)">3</span>) <span style="color: rgba(0, 0, 255, 1)">As</span> <span style="color: rgba(0, 0, 255, 1)">String</span>
-        <span style="color: rgba(0, 128, 128, 1)">17</span> 
-        <span style="color: rgba(0, 128, 128, 1)">18</span>         <span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">连接属性</span>
-        <span style="color: rgba(0, 128, 128, 1)">19</span>         myconnect.ConnectionString = <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">server=192.168.0.100;database=temp;integrated security=true;uid=sa;pwd=   </span><span style="color: rgba(128, 0, 0, 1)">"</span>
-        <span style="color: rgba(0, 128, 128, 1)">20</span>         myconnect.Open()        <span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">打开数据库</span>
-        <span style="color: rgba(0, 128, 128, 1)">21</span> 
-        <span style="color: rgba(0, 128, 128, 1)">22</span>         <span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">设置命令属性</span>
-        <span style="color: rgba(0, 128, 128, 1)">23</span>         mycommand.Connection =<span style="color: rgba(0, 0, 0, 1)"> myconnect
-        </span><span style="color: rgba(0, 128, 128, 1)">24</span>         mycommand.CommandType =<span style="color: rgba(0, 0, 0, 1)"> CommandType.Text
-        </span><span style="color: rgba(0, 128, 128, 1)">25</span>         mycommand.CommandText = <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">select * from stu</span><span style="color: rgba(128, 0, 0, 1)">"</span>
-        <span style="color: rgba(0, 128, 128, 1)">26</span> 
-        <span style="color: rgba(0, 128, 128, 1)">27</span>         <span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">添加列</span>
-        <span style="color: rgba(0, 128, 128, 1)">28</span>         <span style="color: rgba(0, 0, 255, 1)">Dim</span> sno <span style="color: rgba(0, 0, 255, 1)">As</span> DataColumn = <span style="color: rgba(0, 0, 255, 1)">New</span> DataColumn(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">sno</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">)
-        </span><span style="color: rgba(0, 128, 128, 1)">29</span>         <span style="color: rgba(0, 0, 255, 1)">Dim</span> sname <span style="color: rgba(0, 0, 255, 1)">As</span> DataColumn = <span style="color: rgba(0, 0, 255, 1)">New</span> DataColumn(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">sname</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">)
-        </span><span style="color: rgba(0, 128, 128, 1)">30</span>         <span style="color: rgba(0, 0, 255, 1)">Dim</span> ssex <span style="color: rgba(0, 0, 255, 1)">As</span> DataColumn = <span style="color: rgba(0, 0, 255, 1)">New</span> DataColumn(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">ssex</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">)
-        </span><span style="color: rgba(0, 128, 128, 1)">31</span>         <span style="color: rgba(0, 0, 255, 1)">Dim</span> sphone <span style="color: rgba(0, 0, 255, 1)">As</span> DataColumn = <span style="color: rgba(0, 0, 255, 1)">New</span> DataColumn(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">sphone</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">)
-        </span><span style="color: rgba(0, 128, 128, 1)">32</span>         <span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">将列添加到表格中</span>
-        <span style="color: rgba(0, 128, 128, 1)">33</span> <span style="color: rgba(0, 0, 0, 1)">        mytable.Columns.Add(sno)
-        </span><span style="color: rgba(0, 128, 128, 1)">34</span> <span style="color: rgba(0, 0, 0, 1)">        mytable.Columns.Add(sname)
-        </span><span style="color: rgba(0, 128, 128, 1)">35</span> <span style="color: rgba(0, 0, 0, 1)">        mytable.Columns.Add(ssex)
-        </span><span style="color: rgba(0, 128, 128, 1)">36</span> <span style="color: rgba(0, 0, 0, 1)">        mytable.Columns.Add(sphone)
-        </span><span style="color: rgba(0, 128, 128, 1)">37</span> 
-        <span style="color: rgba(0, 128, 128, 1)">38</span>         myread = mycommand.ExecuteReader    <span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">执行读取动作</span>
-        <span style="color: rgba(0, 128, 128, 1)">39</span> 
-        <span style="color: rgba(0, 128, 128, 1)">40</span>         <span style="color: rgba(0, 0, 255, 1)">While</span> (myread.Read)                 <span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">不为空则一直读</span>
-        <span style="color: rgba(0, 128, 128, 1)">41</span> 
-        <span style="color: rgba(0, 128, 128, 1)">42</span>             myread.GetValues(mystr)         <span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">执行读取动作,将一行数据存入mystr数组中</span>
-        <span style="color: rgba(0, 128, 128, 1)">43</span>             mytable.Rows.Add(mystr)         <span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">将数组数据作为一行添加到表中</span>
-        <span style="color: rgba(0, 128, 128, 1)">44</span>         <span style="color: rgba(0, 0, 255, 1)">End</span> <span style="color: rgba(0, 0, 255, 1)">While</span>
-        <span style="color: rgba(0, 128, 128, 1)">45</span> 
-        <span style="color: rgba(0, 128, 128, 1)">46</span>         <span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">将表格与现实控件绑定</span>
-        <span style="color: rgba(0, 128, 128, 1)">47</span>         DataGridView1.DataMember = <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">mytable</span><span style="color: rgba(128, 0, 0, 1)">"</span>
-        <span style="color: rgba(0, 128, 128, 1)">48</span>         DataGridView1.DataSource =<span style="color: rgba(0, 0, 0, 1)"> mytable
-        </span><span style="color: rgba(0, 128, 128, 1)">49</span> 
-        <span style="color: rgba(0, 128, 128, 1)">50</span>         myread.Close()      <span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">关闭读</span>
-        <span style="color: rgba(0, 128, 128, 1)">51</span>         myconnect.Close()   <span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">关闭连接</span>
-        <span style="color: rgba(0, 128, 128, 1)">52</span> 
-        <span style="color: rgba(0, 128, 128, 1)">53</span>     <span style="color: rgba(0, 0, 255, 1)">End Sub</span>
-        <span style="color: rgba(0, 128, 128, 1)">54</span> 
-        <span style="color: rgba(0, 128, 128, 1)">55</span> 
-        <span style="color: rgba(0, 128, 128, 1)">56</span> 
-        <span style="color: rgba(0, 128, 128, 1)">57</span>     <span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">DataSet</span>
-        <span style="color: rgba(0, 128, 128, 1)">58</span>     <span style="color: rgba(0, 0, 255, 1)">Private</span> <span style="color: rgba(0, 0, 255, 1)">Sub</span> Button2_Click(sender <span style="color: rgba(0, 0, 255, 1)">As</span> <span style="color: rgba(0, 0, 255, 1)">Object</span>, e <span style="color: rgba(0, 0, 255, 1)">As</span> EventArgs) <span style="color: rgba(0, 0, 255, 1)">Handles</span><span style="color: rgba(0, 0, 0, 1)"> Button2.Click
-        </span><span style="color: rgba(0, 128, 128, 1)">59</span> 
-        <span style="color: rgba(0, 128, 128, 1)">60</span>         <span style="color: rgba(0, 0, 255, 1)">Dim</span> myconnect <span style="color: rgba(0, 0, 255, 1)">As</span> <span style="color: rgba(0, 0, 255, 1)">New</span><span style="color: rgba(0, 0, 0, 1)"> SqlClient.SqlConnection
-        </span><span style="color: rgba(0, 128, 128, 1)">61</span>         <span style="color: rgba(0, 0, 255, 1)">Dim</span> mycommand <span style="color: rgba(0, 0, 255, 1)">As</span> <span style="color: rgba(0, 0, 255, 1)">New</span><span style="color: rgba(0, 0, 0, 1)"> SqlClient.SqlCommand
-        </span><span style="color: rgba(0, 128, 128, 1)">62</span>         <span style="color: rgba(0, 0, 255, 1)">Dim</span> myadp <span style="color: rgba(0, 0, 255, 1)">As</span> <span style="color: rgba(0, 0, 255, 1)">New</span><span style="color: rgba(0, 0, 0, 1)"> SqlClient.SqlDataAdapter
-        </span><span style="color: rgba(0, 128, 128, 1)">63</span>         <span style="color: rgba(0, 0, 255, 1)">Dim</span> mydataset <span style="color: rgba(0, 0, 255, 1)">As</span> <span style="color: rgba(0, 0, 255, 1)">New</span><span style="color: rgba(0, 0, 0, 1)"> DataSet
-        </span><span style="color: rgba(0, 128, 128, 1)">64</span> 
-        <span style="color: rgba(0, 128, 128, 1)">65</span>         myconnect.ConnectionString = <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">server=192.168.0.100;database=temp;integrated security=true;uid=sa;pwd=   </span><span style="color: rgba(128, 0, 0, 1)">"</span>
-        <span style="color: rgba(0, 128, 128, 1)">66</span> <span style="color: rgba(0, 0, 0, 1)">        myconnect.Open()
-        </span><span style="color: rgba(0, 128, 128, 1)">67</span> 
-        <span style="color: rgba(0, 128, 128, 1)">68</span>         mycommand.Connection =<span style="color: rgba(0, 0, 0, 1)"> myconnect
-        </span><span style="color: rgba(0, 128, 128, 1)">69</span>         mycommand.CommandType =<span style="color: rgba(0, 0, 0, 1)"> CommandType.Text
-        </span><span style="color: rgba(0, 128, 128, 1)">70</span>         mycommand.CommandText = <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">select * from stu</span><span style="color: rgba(128, 0, 0, 1)">"</span>
-        <span style="color: rgba(0, 128, 128, 1)">71</span> 
-        <span style="color: rgba(0, 128, 128, 1)">72</span>         myadp.SelectCommand =<span style="color: rgba(0, 0, 0, 1)"> mycommand
-        </span><span style="color: rgba(0, 128, 128, 1)">73</span> <span style="color: rgba(0, 0, 0, 1)">        myadp.Fill(mydataset)
-        </span><span style="color: rgba(0, 128, 128, 1)">74</span> 
-        <span style="color: rgba(0, 128, 128, 1)">75</span>         DataGridView1.DataSource = mydataset.Tables(<span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)">)
-        </span><span style="color: rgba(0, 128, 128, 1)">76</span> 
-        <span style="color: rgba(0, 128, 128, 1)">77</span> <span style="color: rgba(0, 0, 0, 1)">        myconnect.Close()
-        </span><span style="color: rgba(0, 128, 128, 1)">78</span> 
-        <span style="color: rgba(0, 128, 128, 1)">79</span>     <span style="color: rgba(0, 0, 255, 1)">End Sub</span>
-        <span style="color: rgba(0, 128, 128, 1)">80</span> <span style="color: rgba(0, 0, 255, 1)">End Class</span>
-             </code>
+        <pre>
+        <code>
+        Public Class Form1
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim myconnect As New SqlClient.SqlConnection
+        Dim mycommand As New SqlClient.SqlCommand
+        Dim myread As SqlClient.SqlDataReader = Nothing  'DataReader
+        Dim mytable As New DataTable()
+        Dim mystr(3) As String
+        myconnect.ConnectionString = "server=192.168.0.100;database=temp;integrated security=true;uid=sa;pwd=123456"'连接属性
+        myconnect.Open()        '打开数据库
+        mycommand.Connection = myconnect        '设置命令属性
+        mycommand.CommandType = CommandType.Text
+        mycommand.CommandText = "select * from stu"
+        Dim sno As DataColumn = New DataColumn("sno")             '添加列
+        Dim sname As DataColumn = New DataColumn("sname")
+        Dim ssex As DataColumn = New DataColumn("ssex")
+        Dim sphone As DataColumn = New DataColumn("sphone")
+        mytable.Columns.Add(sno)              '将列添加到表格中
+        mytable.Columns.Add(sname)
+        mytable.Columns.Add(ssex)
+        mytable.Columns.Add(sphone)
+        myread = mycommand.ExecuteReader      '执行读取动作
+        While (myread.Read)                   '不为空则一直读
+            myread.GetValues(mystr)           '执行读取动作,将一行数据存入mystr数组中
+            mytable.Rows.Add(mystr)           '将数组数据作为一行添加到表中
+        End While
+        DataGridView1.DataMember = "mytable"  '将表格与现实控件绑定
+        DataGridView1.DataSource = mytable
+        myread.Close()      '关闭读
+        myconnect.Close()   '关闭连接
+    End Sub
+    
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim myconnect As New SqlClient.SqlConnection
+        Dim mycommand As New SqlClient.SqlCommand
+        Dim myadp As New SqlClient.SqlDataAdapter    
+        Dim mydataset As New DataSet             'DataSet
+        myconnect.ConnectionString = "server=172.0.01;database=temp;integrated security=true;uid=sa;pwd=123456"
+        myconnect.Open()
+        mycommand.Connection = myconnect
+        mycommand.CommandType = CommandType.Text
+        mycommand.CommandText = "select * from stu"
+        myadp.SelectCommand = mycommand
+        myadp.Fill(mydataset)
+        DataGridView1.DataSource = mydataset.Tables(0)
+        myconnect.Close()
+    End Sub
+End Class
+        </code>
          </pre>
         <p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
         <h3>
