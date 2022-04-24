@@ -29,7 +29,7 @@
         <p>二.编辑操作命令：</p>
         <p>三.读取数据（数据读取有两种操作方式：DataSet和DataReader）</p>
         <pre>
-        <code>Public Class Form1
+        <code><span class="highlight">Public Class Form1
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim myconnect As New SqlClient.SqlConnection
         Dim mycommand As New SqlClient.SqlCommand
@@ -75,7 +75,7 @@
         DataGridView1.DataSource = mydataset.Tables(0)
         myconnect.Close()
     End Sub
-End Class</code>
+End Class</span></code>
          </pre>
         <p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
         <h3>
