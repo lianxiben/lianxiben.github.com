@@ -260,9 +260,10 @@ code, pre {
 
 pre {
   padding: 20px;
-  background: #3A3C42;
+  background: #f5f5f5;
   color: #f8f8f2;
   margin: 0 -20px 20px;
+  border: 1px solid #ccc
 }
 pre code {
   color: #f8f8f2;
